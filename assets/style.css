@@ -35,10 +35,6 @@ body {
     margin-left: 10px;
 }
 
-#container-produtos {
-    /* margin-top: 30px; */
-}
-
 .produtos {
     display: flex;
     flex-direction: row;
