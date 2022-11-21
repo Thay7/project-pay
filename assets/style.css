@@ -1,0 +1,53 @@
+/* pegar font para importar depois*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #FFF;
+}
+
+#logo-header {
+    text-align: center;
+    margin-top: 15px;
+}
+
+#header-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+#header-main p {
+    margin-right: 600px;
+    font-size: 20px;
+}
+
+#header-main img {
+    width: 50px;
+    height: 50px;
+    margin-left: 25px;
+}
+
+#container-produtos {
+    /* margin-top: 30px; */
+}
+
+.produtos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 1050px;
+    margin-left: 250px;
+    margin-top: 30px;
+
+}
+
+.produtos img {
+    width: 80px;
+}
