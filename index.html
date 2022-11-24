@@ -17,55 +17,67 @@
 
     <main>
         <div id="container-carrinho">
-        <div id="header-main">
-            <p>Nova Venda</p>
-            <img id="icone-carrinho" src="/assets/images/carrinho-de-compras.png" alt="Carrinho de Compras" title="Carrinho">
-        </div>
-        <div id="container-produtos">
-            <div class="produtos">
-                <div class="produtoeimagem">
-                    <img src="/assets/images/products/produto-1.png">
-                    <p>Produto 1</p>
-                    <p>R$ 100,00</p>
-                    <button class="button-addcarinho">Adicionar ao carrinho</button>
-                </div>
-                <div class="produtoeimagem">
-                    <img src="/assets/images/products/produto-2.png">
-                    <p>Produto 2</p>
-                    <p>R$ 80,00</p>
-                    <button class="button-addcarinho">Adicionar ao carrinho</button>
-                </div>
-                <div class="produtoeimagem">
-                    <img src="/assets/images/products/produto-3.png">
-                    <p>Produto 3</p>
-                    <p>R$ 50,00</p>
-                    <button class="button-addcarinho">Adicionar ao carrinho</button>
-                </div>
+            <div id="header-main">
+                <p>Nova Venda</p>
+                <a href="/carrinho.html"><img id="icone-carrinho" src="/assets/images/carrinho-de-compras.png"
+                        alt="Carrinho de Compras" title="Carrinho"></a>
             </div>
+            <div id="container-produtos">
+                <div class="produtos">
+                    <div class="produtoeimagem">
+                        <img src="/assets/images/products/produto-1.png">
+                        <p>Produto 1</p>
+                        <p>R$ 100,00</p>
+                        <button onclick="adicionarAoCarrinho()" class="button-addcarinho">Adicionar ao carrinho</button>
+                    </div>
+                    <div class="produtoeimagem">
+                        <img src="/assets/images/products/produto-2.png">
+                        <p>Produto 2</p>
+                        <p>R$ 80,00</p>
+                        <button onclick="adicionarAoCarrinho()" class="button-addcarinho">Adicionar ao carrinho</button>
+                    </div>
+                    <div class="produtoeimagem">
+                        <img src="/assets/images/products/produto-3.png">
+                        <p>Produto 3</p>
+                        <p>R$ 50,00</p>
+                        <button onclick="adicionarAoCarrinho()" class="button-addcarinho">Adicionar ao carrinho</button>
+                    </div>
+                </div>
 
-            <div class="produtos">
-                <div class="produtoeimagem">
-                    <img src="/assets/images/products/produto-4.png">
-                    <p>Produto 4</p>
-                    <p>R$ 150,00</p>
-                    <button class="button-addcarinho">Adicionar ao carrinho</button>
-                </div>
-                <div class="produtoeimagem">
-                    <img src="/assets/images/products/produto-5.png">
-                    <p>Produto 5</p>
-                    <p>R$ 70,00</p>
-                    <button class="button-addcarinho">Adicionar ao carrinho</button>
-                </div>
-                <div class="produtoeimagem">
-                <img src="/assets/images/products/produto-6.png">
-                <p>Produto 6</p>
-                <p>R$ 300,00</p>
-                <button class="button-addcarinho">Adicionar ao carrinho</button>
+                <div class="produtos">
+                    <div class="produtoeimagem">
+                        <img src="/assets/images/products/produto-4.png">
+                        <p>Produto 4</p>
+                        <p>R$ 150,00</p>
+                        <button onclick="adicionarAoCarrinho()" class="button-addcarinho">Adicionar ao carrinho</button>
+                    </div>
+                    <div class="produtoeimagem">
+                        <img src="/assets/images/products/produto-5.png">
+                        <p>Produto 5</p>
+                        <p>R$ 70,00</p>
+                        <button onclick="adicionarAoCarrinho()" class="button-addcarinho">Adicionar ao carrinho</button>
+                    </div>
+                    <div class="produtoeimagem">
+                        <img src="/assets/images/products/produto-6.png">
+                        <p>Produto 6</p>
+                        <p>R$ 300,00</p>
+                        <button onclick="adicionarAoCarrinho()" class="button-addcarinho">Adicionar ao carrinho</button>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </main>
+
+    <div id="adicionarItem">
+        <div id="header-adicionarItem">
+            <p>Nome do Produto</p>
+            <p>R$ 00,00</p>
+        </div>
+        <p>R$ 00,00</p>
+        <button>Adicionar ao carrinho</button>
+        <button>Finalizar compra</button>
+    </div>
+
 
     <footer></footer>
 
