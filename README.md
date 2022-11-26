@@ -1,1 +1,1 @@
-# construção de uma página web de carrinho de compras, utilizando html, javascript e css!
+# Construção de uma página web de carrinho de compras, utilizando html, javascript e css!
