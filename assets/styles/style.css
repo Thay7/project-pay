@@ -18,10 +18,16 @@ header {
     text-align: center;
 }
 
+#container-carrinho {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #titulo-header {
     margin-top: 15px;
     font-size: 44px;
-    margin-right: 80px;
     margin-bottom: 3px;
     color: rgb(255, 255, 255);
 }
@@ -35,30 +41,27 @@ header {
     background-color: rgb(34, 64, 82);
     width: 900px;
     height: 60px;
-    margin-left: 310px;
 }
 
 #header-main p {
     margin-left: 30px;
-    font-size: 26px;
+    font-size: 21px;
     text-align: center;
 }
 
 #icone-carrinho {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin-right: 40px;
     cursor: pointer;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 #container-produtos {
     box-shadow: 5px 5px 10px 5px rgba(12, 8, 8, 0.212);
     width: 900px;
     height: 540px;
-    margin-left: 310px;
     background-color: rgb(34, 64, 82);
+    margin-top: 5px;
 }
 
 .produtos {
@@ -119,8 +122,8 @@ header {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
     background-color: rgb(25, 57, 75);
     border-radius: .5rem;
     text-align: center;
@@ -129,17 +132,31 @@ header {
 #modalAdicionarItem button {
     cursor: pointer;
     color: rgb(255, 255, 255);
-    background-color:rgb(10, 39, 56);
+    background-color: rgba(12, 8, 8, 0.212);
     border: none;
-
+    border-radius: 5px;
 }
 
 #header-modalAdicionarItem {
     display: flex;
     justify-content: space-around;
-    align-items: center;
     margin-top: 20px;
+    align-items: center;
 }
+
+#header-modalAdicionarItem p {
+    font-size: 18px;
+}
+
+#buttonFecharModal {
+    padding: 5px;
+}
+
+#buttonFecharModal img {
+    width: 30px;
+    background-color: #FFF;
+}
+
 
 #body-modalAdicionarItem {
     display: flex;
@@ -149,7 +166,7 @@ header {
 
 #img-modal {
     width: 150px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 
@@ -159,7 +176,15 @@ header {
 
 #body-modalAdicionarItem button {
     margin-top: 5px;
+    width: 220px;
     height: 30px;
+    padding: 3px;
+}
+
+#buttons-bodymodal {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
 }
 
 

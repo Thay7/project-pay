@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
-    <title>Pagamentos</title>
+    <title>Carrinho de Compras</title>
 </head>
 
 <body>
@@ -67,20 +67,22 @@
             </div>
         </div>
 
-        <div id="fade" class="hide">
-        <div id="modalAdicionarItem" class="hide">
-            <div id="header-modalAdicionarItem">
-                <p>Nome do Produto</p>
-                <button onclick="fecharModal()" id="buttonFecharModal">Fechar</button>
+        <div id="fade" class="hide"></div>
+            <div id="modalAdicionarItem" class="hide">
+                <div id="header-modalAdicionarItem">
+                    <p>Nome do Produto</p>
+                    <button onclick="fecharModal()" id="buttonFecharModal">Fechar</button>
+                </div>
+                <div id="body-modalAdicionarItem">
+                    <img id="img-modal" src="/assets/images/products/produto-1.png">
+                    <p>R$ 00,00</p>
+                    <div id="buttons-bodymodal">
+                        <button class="buttons-bodyMoodal">Adicionar ao carrinho</button>
+                        <button class="buttons-bodyMoodal">Finalizar compra</button>
+                    </div>
+                </div>
             </div>
-            <div id="body-modalAdicionarItem">
-                <img id="img-modal" src="/assets/images/products/produto-1.png">
-                <p>R$ 00,00</p>
-                <button class="buttons-bodyMoodal">Adicionar ao carrinho</button>
-                <button class="buttons-bodyMoodal">Finalizar compra</button>
-            </div>
-        </div>
-    </div>
+      
 
 
     </main>
