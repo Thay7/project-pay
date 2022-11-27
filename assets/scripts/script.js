@@ -1,56 +1,75 @@
+//Array de objetos contendo os produtos do carrinho
 let produtosCarrinho = [
     {
         id: 1,
         img: '/assets//images/products/produto-1.png',
         nome: 'Pefume Kaiak',
-        preço: 'R$ ' + '100,00'
+        preço: 100
     },
     {
         id: 2,
         img: '/assets//images/products/produto-2.png',
         nome: 'Pefume Humor',
-        preço: 'R$ ' + '80,00'
+        preço: 80
     },
     {
         id: 3,
         img: '/assets//images/products/produto-3.png',
         nome: 'Hidratante',
-        preço: 'R$ ' + '50,00'
+        preço: 50
     },
     {
         id: 4,
         img: '/assets//images/products/produto-4.png',
         nome: 'Sabonetes',
-        preço: 'R$ ' + '150,00'
+        preço: 150
     },
     {
         id: 5,
         img: '/assets//images/products/produto-5.png',
         nome: 'Shampoo',
-        preço: 'R$ ' + '70,00'
+        preço: 70
     },
     {
         id: 6,
         img: '/assets//images/products/produto-6.png',
         nome: 'Sabonete Liquido',
-        preço: 'R$ ' + '300,00'
+        preço: 300
     }
 ]
 
-let image = document.querySelector('.img-produto')
-let nome = document.querySelector('.nome-produto')
-let preco = document.querySelector('.preco-produto')
+//Adicionando os produtos na area do carrinho
+const q = (el) => document.querySelector(el) //retorna o item
+const all = (el) => document.querySelectorAl(el) //retorna um array com todos os itens
 
-produtosCarrinho.forEach(function (item) {
-    image.src = item.img
-    nome.innerHTML = item.nome
-    preco.innerHTML = item.preço
-});
+produtosCarrinho.map((item, index) => {
+    let produtoItem = q('#produtos-teste #container-produtos').cloneNode(true)
 
+    produtoItem.setAttribute('data-key', index) //Inserindo o index do array como a chave do produto
 
+    produtoItem.querySelector('.img-produto').src = item.img
+    produtoItem.querySelector('.nome-produto').innerHTML = item.nome
+    produtoItem.querySelector('.preco-produto').innerHTML = `R$ ${item.preço.toFixed(2)} `
+
+    //Pegando o index do produto que foi clicado, para colocar no modal
+    produtoItem.querySelector('.button-addcarinho').addEventListener('click', (e => {
+        let key = e.target.closest('#container-produtos').getAttribute('data-key')
+
+        //Preenchendo  no modal as informações do produto que foi clicado
+        q('#header-modalAdicionarItem p').innerHTML = produtosCarrinho[key].nome
+        q('#body-modalAdicionarItem img').src = produtosCarrinho[key].img
+        q('#body-modalAdicionarItem p').innerHTML = `R$ ${produtosCarrinho[key].preço.toFixed(2)}`
+
+    }))
+    
+    document.querySelector('.produto-area').append(produtoItem)
+})
+
+//Eventos de abrir e fechar o modal, assim como o de fechar o modal clicando no fade
 const fade = document.querySelector('#fade')
 const modal = document.querySelector('#modalAdicionarItem')
 const buttonFecharModal = document.querySelector('#modalAdicionarItem')
+
 
 function adicionarAoCarrinho() {
     modal.classList.toggle('hide')
@@ -66,4 +85,6 @@ function fecharModal() {
     buttonFecharModal.classList.toggle('hide')
     fade.classList.toggle('hide')
 }
+
+
 

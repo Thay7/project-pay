@@ -18,6 +18,11 @@ header {
     text-align: center;
 }
 
+.produto-area {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #container-carrinho {
     display: flex;
     flex-direction: column;
@@ -56,7 +61,7 @@ header {
     cursor: pointer;
 }
 
-#container-produtos {
+#estilo-carrinho {
     box-shadow: 5px 5px 10px 5px rgba(12, 8, 8, 0.212);
     width: 900px;
     height: 540px;
@@ -70,6 +75,7 @@ header {
     align-items: center;
     justify-content: space-evenly;
     margin-top: 10px;
+    margin-left: 100px;
 }
 
 .produtos img {
@@ -129,14 +135,6 @@ header {
     text-align: center;
 }
 
-#modalAdicionarItem button {
-    cursor: pointer;
-    color: rgb(255, 255, 255);
-    background-color: rgba(12, 8, 8, 0.212);
-    border: none;
-    border-radius: 5px;
-}
-
 #header-modalAdicionarItem {
     display: flex;
     justify-content: space-around;
@@ -148,15 +146,17 @@ header {
     font-size: 18px;
 }
 
+#modalAdicionarItem button {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: rgba(12, 8, 8, 0.212);
+    border: none;
+    border-radius: 5px;
+}
+
 #buttonFecharModal {
     padding: 5px;
 }
-
-#buttonFecharModal img {
-    width: 30px;
-    background-color: #FFF;
-}
-
 
 #body-modalAdicionarItem {
     display: flex;
@@ -164,14 +164,17 @@ header {
     align-items: center;
 }
 
-#img-modal {
-    width: 150px;
-    margin-top: 15px;
+#body-modalAdicionarItem p {
+    margin-top: 14px;
 }
 
-
-#body-modalAdicionarItem p {
-    margin-top: 10px;
+#body-modalAdicionarItem img {
+    width: 160px;
+    margin-top: 15px;
+    /* box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.212); */
+    background-color: rgba(14, 7, 7, 0.384);
+    padding: 10px;
+    border-radius: 10px;
 }
 
 #body-modalAdicionarItem button {
@@ -196,4 +199,7 @@ header {
 #fade.hide {
     opacity: 0;
     pointer-events: none;
+}
+#produtos-teste {
+    display: none;
 }
