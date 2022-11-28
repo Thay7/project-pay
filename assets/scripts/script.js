@@ -57,11 +57,15 @@ produtosCarrinho.map((item, index) => {
 
         //Preenchendo  no modal as informações do produto que foi clicado
         q('#header-modalAdicionarItem p').innerHTML = produtosCarrinho[key].nome
+        q('#header-modalAdicionarItem #preco').innerHTML = `R$ ${produtosCarrinho[key].preço.toFixed(2)}`
         q('#body-modalAdicionarItem img').src = produtosCarrinho[key].img
-        q('#body-modalAdicionarItem p').innerHTML = `R$ ${produtosCarrinho[key].preço.toFixed(2)}`
+
+        //Resetando a quantidade de produtos pra 1, sempre que o modal é fechado
+        q('#modal-quantidade-preco input').setAttribute("value", "1") //CORRIGIR
+
 
     }))
-    
+
     document.querySelector('.produto-area').append(produtoItem)
 })
 
