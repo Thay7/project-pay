@@ -105,23 +105,6 @@ header {
     border-color: rgba(235, 199, 199, 0.212);
 }
 
-#fade,
-#modalAdicionarItem {
-    transition: .5s;
-    opacity: 1;
-    pointer-events: all;
-}
-
-#fade {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 5;
-}
-
 #modalAdicionarItem {
     position: fixed;
     z-index: 10;
@@ -138,7 +121,7 @@ header {
 #header-modalAdicionarItem {
     display: flex;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 11px;
     align-items: center;
 }
 
@@ -156,6 +139,11 @@ header {
 
 #buttonFecharModal {
     padding: 5px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: rgba(12, 8, 8, 0.212);
+    border: none;
+    border-radius: 5px;
 }
 
 #body-modalAdicionarItem {
@@ -165,20 +153,19 @@ header {
 }
 
 #body-modalAdicionarItem p {
-    margin-top: 14px;
+    margin-top: 8px;
 }
 
 #body-modalAdicionarItem img {
     width: 160px;
-    margin-top: 15px;
-    /* box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.212); */
+    margin-top: 10px;
     background-color: rgba(14, 7, 7, 0.384);
     padding: 10px;
     border-radius: 10px;
 }
 
 #body-modalAdicionarItem button {
-    margin-top: 5px;
+    margin-top: 4px;
     width: 220px;
     height: 30px;
     padding: 3px;
@@ -186,21 +173,31 @@ header {
 
 #modal-quantidade-preco {
     display: flex;
-    text-align: center;
     align-items: center;
 }
 
-#body-modalAdicionarItem input {
-    color: #000;
+#body-modalAdicionarItem p {
+    margin-right: 6px;
+    margin-top: 7px;
+    margin-right: 7px;
+}
+
+#modal-quantidade-preco div {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+#modal-quantidade-preco button {
     width: 50px;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
+    font-size: 23px;
+    text-align: center;
 }
 
 #buttons-bodymodal {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
+    margin-top: 4px;
 }
 
 
@@ -213,6 +210,24 @@ header {
     opacity: 0;
     pointer-events: none;
 }
+
 #produtos-teste {
     display: none;
+}
+
+#fade,
+#modalAdicionarItem {
+    transition: .5s;
+    opacity: 1;
+    pointer-events: all;
+}
+
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
 }
