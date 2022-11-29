@@ -231,3 +231,13 @@ header {
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 5;
 }
+
+#carrinho {
+    box-shadow: 5px 5px 10px 5px rgba(12, 8, 8, 0.212);
+    width: 900px;
+    height: 540px;
+    background-color: rgb(34, 64, 82);
+    margin-top: 5px;
+    align-items: center;
+    justify-content: center;
+}

@@ -57,6 +57,7 @@ produtosCarrinho.map((item, index) => {
     //Pegando o index do produto que foi clicado, para colocar no modal
     produtoItem.querySelector('.button-addcarinho').addEventListener('click', (e) => {
         let key = e.target.closest('#container-produtos').getAttribute('data-key')
+
         modalQuantidade = 1
 
         //Preenchendo o modal com as informações do produto que foi clicado
@@ -67,23 +68,10 @@ produtosCarrinho.map((item, index) => {
 
         q('#quantidade-produto').innerHTML = modalQuantidade
 
-        //Diminuir quantidade dos produtos
-        q('#quantidade-menos').addEventListener('click', () => {
-            
-            if (modalQuantidade > 1) {
-                modalQuantidade--
-            }
-
-            q('#quantidade-produto').innerHTML = modalQuantidade //Colocando na tela a quantidade atualizada
-           
-            // let precoFinal = 
-
-            // q('#body-modalAdicionarItem p').innerHTML = `R$ ${precoFinal.toFixed(2)}`
-        })
-
         //Aumentar quantidade dos produtos
         q('#quantidade-mais').addEventListener('click', () => {
             modalQuantidade++ //Incrementando 1 na quantidade, sempre que o usuario clica no +
+
             //Colocando na tela a quantidade atualizada
             q('#quantidade-produto').innerHTML = modalQuantidade
 
@@ -92,6 +80,22 @@ produtosCarrinho.map((item, index) => {
 
             //Substituindo em tela o preço antigo pelo preço novo 
             q('#body-modalAdicionarItem p').innerHTML = `R$ ${novoPreco.toFixed(2)}`
+
+            //Diminuir quantidade dos produtos
+            q('#quantidade-menos').addEventListener('click', () => {
+
+                if (modalQuantidade > 1) {
+                    modalQuantidade--
+                }
+
+                //Colocando na tela a quantidade atualizada
+                q('#quantidade-produto').innerHTML = modalQuantidade
+
+                //Diminuindo o valor inicial do produto, do valor 
+                let precoFinal = novoPreco - produtosCarrinho[key].preço
+
+                q('#body-modalAdicionarItem p').innerHTML = `R$ ${precoFinal.toFixed(2)}`
+            })
         })
     })
 
@@ -107,7 +111,6 @@ const buttonFecharModal = document.querySelector('#modalAdicionarItem')
 function adicionarAoCarrinho() {
     modal.classList.toggle('hide')
     fade.classList.toggle('hide')
-
 }
 
 fade.addEventListener("click", () => {
