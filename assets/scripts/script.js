@@ -39,15 +39,18 @@ let produtosCarrinho = [
 ]
 
 let modalQuantidade = 1
+let cart = []
+let modalKey = 0
 
-//Adicionando os produtos na area do carrinho
+
 const q = (el) => document.querySelector(el) //retorna o item
 const all = (el) => document.querySelectorAl(el) //retorna um array com todos os itens
 
+//Mapeando o array
 produtosCarrinho.map((item, index) => {
     let produtoItem = q('#produtos-teste #container-produtos').cloneNode(true)
 
-    //Inserindo o index do array como a chave do produto
+    //Inserindo o index do array como a chave do produto (adicionar um atributo ao elemento e dando o valor do index)
     produtoItem.setAttribute('data-key', index)
 
     //Preenchendo a tela do carrinho com os produtos
@@ -59,50 +62,86 @@ produtosCarrinho.map((item, index) => {
     produtoItem.querySelector('.button-addcarinho ').addEventListener('click', (e) => {
         let key = e.target.closest('#container-produtos').getAttribute('data-key')
 
+        //Resetando a quantidade para 1 e colocando na tela, sempre que o modal é aberto
+        modalQuantidade = 1
+        q('#quantidade-produto').innerHTML = modalQuantidade
+
+        //Atribuindo à variavel, o index do produto que foi clicado (assim coseguimos acessar as propriedades do array de produtos)
+        modalKey = key
+
         //Preenchendo o modal com as informações do produto que foi clicado
         q('#header-modalAdicionarItem p').innerHTML = produtosCarrinho[key].nome
         q('#header-modalAdicionarItem #preco').innerHTML = `R$ ${produtosCarrinho[key].preço.toFixed(2)}`
         q('#body-modalAdicionarItem img').src = produtosCarrinho[key].img
         q('#body-modalAdicionarItem p').innerHTML = `R$ ${produtosCarrinho[key].preço.toFixed(2)}`
-
-
-        q('#quantidade-produto').innerHTML = modalQuantidade
-        //Aumentar quantidade dos produtos
-        q('#quantidade-mais').addEventListener('click', () => {
-            modalQuantidade++ //Incrementando 1 na quantidade, sempre que o usuario clica no +
-
-            //Colocando na tela a quantidade atualizada
-            q('#quantidade-produto').innerHTML = modalQuantidade
-
-            //Calculando o novo preço, a partir da quantidades de itens
-            let novoPreco = (produtosCarrinho[key].preço * modalQuantidade)
-
-            //Substituindo em tela o preço antigo pelo preço novo 
-            q('#body-modalAdicionarItem p').innerHTML = `R$ ${novoPreco.toFixed(2)}`
-        })
-        //Diminuir quantidade dos produtos
-        q('#quantidade-menos').addEventListener('click', () => {
-
-            if (modalQuantidade > 1) {
-                modalQuantidade--
-
-                //Colocando na tela a quantidade atualizada
-                q('#quantidade-produto').innerHTML = modalQuantidade
-            }
-
-            //Calculando o novo preço, a partir da quantidades de itens
-            let precoFinal = produtosCarrinho[key].preço * modalQuantidade
-
-            q('#body-modalAdicionarItem p').innerHTML = `R$ ${precoFinal.toFixed(2)}`
-        })
     })
+
+    q('#quantidade-produto').innerHTML = modalQuantidade
+
     document.querySelector('.produto-area').append(produtoItem)
 })
+
+//Aumentar quantidade dos produtos
+q('#quantidade-mais').addEventListener('click', () => {
+    modalQuantidade++ //Incrementando 1 na quantidade, sempre que o usuario clica no +
+
+    //Colocando na tela a quantidade atualizada
+    q('#quantidade-produto').innerHTML = modalQuantidade
+
+    //Calculando o novo preço, a partir da quantidades de itens
+    let novoPreco = (produtosCarrinho[modalKey].preço * modalQuantidade)
+
+    //Substituindo em tela o preço antigo pelo preço novo 
+    q('#body-modalAdicionarItem p').innerHTML = `R$ ${novoPreco.toFixed(2)}`
+})
+
+//Diminuir quantidade dos produtos
+q('#quantidade-menos').addEventListener('click', () => {
+
+    if (modalQuantidade > 1) {
+        modalQuantidade--
+
+        //Colocando na tela a quantidade atualizada
+        q('#quantidade-produto').innerHTML = modalQuantidade
+    }
+
+    //Calculando o novo preço, a partir da quantidades de itens
+    let precoFinal = produtosCarrinho[modalKey].preço * modalQuantidade
+
+    q('#body-modalAdicionarItem p').innerHTML = `R$ ${precoFinal.toFixed(2)}`
+})
+
+//Adicionando itens ao carrinho (CORRIGIR)
+// q('#button-addaocarrinho'), addEventListener('click', () => {
+
+//     //Criando um identificador que unifica o index do produto com a quantidade
+//     let identifier = produtosCarrinho[modalKey].id + '@' + modalQuantidade
+
+//     ///Buscando no carrinho se tem algum item que já tem o mesmo identifier do produto que foi adicionado. Se NÃO tiver ele retorna -1
+//     let index = cart.findIndex((item) => item.identifier == identifier)
+
+//     //Se tiver, aumenta apenas a quantidade
+//     if (index > -1) {
+//         cart[index].qt += modalQuantidade
+
+//     //Se NãO tiver, adiciona o produto ao carrinho
+//     } else {
+//         //Adicionando ao array, as informações do produto
+//         cart.push({
+//             identifier,
+//             id: produtosCarrinho[modalKey].id,
+//             qt: modalQuantidade
+//         })
+//     }
+
+// })
+
 
 //Eventos de abrir e fechar o modal, assim como o de fechar o modal clicando no fade
 const fade = document.querySelector('#fade')
 const modal = document.querySelector('#modalAdicionarItem')
 const buttonFecharModal = document.querySelector('#modalAdicionarItem')
+const buttonaddAoCarrinhho = q('#button-addaocarrinho')
 
 function adicionarAoCarrinho() {
     modal.classList.toggle('hide')
@@ -119,6 +158,10 @@ function fecharModal() {
     fade.classList.toggle('hide')
 }
 
+function addAoCarrinhho() {
+    modal.classList.toggle('hide')
+    fade.classList.toggle('hide')
+}
 
 
 
