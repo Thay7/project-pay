@@ -112,30 +112,37 @@ q('#quantidade-menos').addEventListener('click', () => {
 })
 
 //Adicionando itens ao carrinho (CORRIGIR)
-// q('#button-addaocarrinho'), addEventListener('click', () => {
+q('#button-addaocarrinho').addEventListener('click', () => {
+    //Criando um identificador para o produto
+    let identifier = produtosCarrinho[modalKey].id
 
-//     //Criando um identificador que unifica o index do produto com a quantidade
-//     let identifier = produtosCarrinho[modalKey].id + '@' + modalQuantidade
+    //Buscando no carrinho se tem algum item que já tem o mesmo identifier do produto que foi adicionado. (Se NÃO tiver ele retorna -1)
+    let validarIdentificador = cart.findIndex((item => item.identifier == identifier))
 
-//     ///Buscando no carrinho se tem algum item que já tem o mesmo identifier do produto que foi adicionado. Se NÃO tiver ele retorna -1
-//     let index = cart.findIndex((item) => item.identifier == identifier)
+    //Se tiver, aumenta apenas a quantidade do produto
+    if (validarIdentificador > -1) {
+        cart[validarIdentificador].qt += modalQuantidade
 
-//     //Se tiver, aumenta apenas a quantidade
-//     if (index > -1) {
-//         cart[index].qt += modalQuantidade
+        // Se NãO tiver, adiciona o produto ao carrinho
+    } else {
+        cart.push({
+            identifier,
+            id: produtosCarrinho[modalKey].id,
+            qt: modalQuantidade
+        })
+    }
+    updateCart()
+})
 
-//     //Se NãO tiver, adiciona o produto ao carrinho
-//     } else {
-//         //Adicionando ao array, as informações do produto
-//         cart.push({
-//             identifier,
-//             id: produtosCarrinho[modalKey].id,
-//             qt: modalQuantidade
-//         })
-//     }
 
-// })
+function updateCart() {
+    for (let i in cart) {
 
+        let produtoItem = produtosCarrinho.find((item) => item.id == cart[i].id)
+
+        // console.log(produtoItem)
+    }
+}
 
 //Eventos de abrir e fechar o modal, assim como o de fechar o modal clicando no fade
 const fade = document.querySelector('#fade')
@@ -162,6 +169,3 @@ function addAoCarrinhho() {
     modal.classList.toggle('hide')
     fade.classList.toggle('hide')
 }
-
-
-
