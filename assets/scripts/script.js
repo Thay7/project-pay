@@ -59,7 +59,7 @@ produtosCarrinho.map((item, index) => {
     produtoItem.querySelector('.preco-produto').innerHTML = `R$ ${item.preço.toFixed(2)} `
 
     //Pegando o index do produto que foi clicado, para colocar no modal
-    produtoItem.querySelector('.button-addcarinho ').addEventListener('click', (e) => {
+    produtoItem.querySelector('.button-addcarrinho ').addEventListener('click', (e) => {
         let key = e.target.closest('#container-produtos').getAttribute('data-key')
 
         //Resetando a quantidade para 1 e colocando na tela, sempre que o modal é aberto
@@ -131,18 +131,43 @@ q('#button-addaocarrinho').addEventListener('click', () => {
             qt: modalQuantidade
         })
     }
-    updateCart()
+
+    q('#icone-carrinho').classList.remove('hide')
+    q('#quantidade-no-carrinho').classList.remove('hide')
+
+    q('#quantidade-no-carrinho').innerHTML = modalQuantidade
+
+
+
+
+    // updateCart()
 })
 
 
-function updateCart() {
-    for (let i in cart) {
+// function updateCart() {
+//     if (cart.length > 0) {
+//         q('#carrinho-area').classList.remove('hide')
+//         q('#carrinho-area').innerHTML = ''
 
-        let produtoItem = produtosCarrinho.find((item) => item.id == cart[i].id)
+//         for (let i in cart) {
+//             //Encontrando no carrinho o produto pelo id
+//             let produtoItem = produtosCarrinho.find((item) => item.id == cart[i].id)
+//             let cartItem = q('#carrinho-style #produtos-carrinho-area').cloneNode(true)
 
-        // console.log(produtoItem)
-    }
-}
+//             cartItem.querySelector('.img-produto-carrinho').src = produtoItem.img
+//             cartItem.querySelector('.nome-produto-carrinho').innerHTML = produtoItem.nome
+//             cartItem.querySelector('.preco-produto-carrinho').innerHTML = `R$ ${produtoItem.preço.toFixed(2)}`
+//             cartItem.querySelector('.quantidade').innerHTML = cart[i].qt
+
+//             console.log(cart[i].qt)
+//             document.querySelector('#carrinho-area').append(cartItem)
+
+
+//         }
+//     } else {
+//         q('#carrinho-area').classList.add('hide')
+//     }
+// }
 
 //Eventos de abrir e fechar o modal, assim como o de fechar o modal clicando no fade
 const fade = document.querySelector('#fade')
@@ -169,3 +194,4 @@ function addAoCarrinhho() {
     modal.classList.toggle('hide')
     fade.classList.toggle('hide')
 }
+

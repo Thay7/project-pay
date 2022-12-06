@@ -10,18 +10,20 @@
 </head>
 
 <body>
- 
+
     <header>
-        <!-- <h2 id="titulo-header">Carrinho de Compras</h2> -->
+        <h2 id="titulo-header">Carrinho de Compras</h2>
     </header>
     <main>
         <div id="container-carrinho">
             <div id="header-main">
                 <p>Nova Venda</p>
-                <a href="/carrinho.html"><img id="icone-carrinho" src="/assets/images/carrinho-de-compras.png"
-                        alt="Carrinho de Compras" title="Carrinho"></a>
+                <a href="#"> <img id="icone-carrinho" onclick="abrirCarrinho()" class="hide"
+                        src="/assets/images/carrinho-de-compras.png" alt="Carrinho de Compras" title="Carrinho"></a>
+                        <div class="hide" id="quantidade-no-carrinho"></div>
             </div>
-        <div id="fade" class="hide"></div>
+            <div id="fade" class="hide"></div>
+
             <div id="estilo-carrinho">
                 <div class="produto-area"></div>
             </div>
@@ -33,12 +35,12 @@
                             <img class="img-produto" src="">
                             <p class="nome-produto"></p>
                             <p class="preco-produto"></p>
-                            <button onclick="adicionarAoCarrinho()" class="button-addcarinho">Adicionar ao
+                            <button onclick="adicionarAoCarrinho()" class="button-addcarrinho">Adicionar ao
                                 carrinho</button>
                         </div>
 
                         <div id="fade" class="hide"></div>
-                        
+
                         <div id="modalAdicionarItem" class="hide">
                             <div id="header-modalAdicionarItem">
                                 <p></p>
@@ -54,7 +56,8 @@
                                     <button id="quantidade-mais">+</button>
                                 </div>
                                 <div id="buttons-bodymodal">
-                                    <button class="buttons-bodyMoodal" id="button-addaocarrinho" onclick="addAoCarrinhho()">Adicionar ao carrinho</button>
+                                    <button class="buttons-bodyMoodal" id="button-addaocarrinho"
+                                        onclick="addAoCarrinhho()">Adicionar ao carrinho</button>
                                     <a href="/carrinho.html"><button class="buttons-bodyMoodal">Finalizar
                                             compra</button></a>
                                 </div>
@@ -63,8 +66,24 @@
                     </div>
                 </div>
             </div>
+
+            <div id="carrinho-area" class="hide">
+            </div>
+
+            <div id="carrinho-style">
+                <div id="produtos-carrinho-area">
+                    <img class="img-produto-carrinho" src="">
+                    <p class="nome-produto-carrinho"></p>
+                    <p class="preco-produto-carrinho"></p>
+                    <div id="quantidade-carrinho">
+                        <button>-</button>
+                        <p class="quantidade"></p>
+                        <button>+</bitton>
+                    </div>
+                </div>
+            </div>
         </div>
- 
+        </div>
 
     </main>
 
