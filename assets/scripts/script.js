@@ -132,42 +132,52 @@ q('#button-addaocarrinho').addEventListener('click', () => {
         })
     }
 
-    q('#icone-carrinho').classList.remove('hide')
-    q('#quantidade-no-carrinho').classList.remove('hide')
-
-    q('#quantidade-no-carrinho').innerHTML = modalQuantidade
-
-
-
-
-    // updateCart()
+    updateCart()
 })
 
+function updateCart() {
+    if (cart.length > 0) {
+        q('#carrinho-area').classList.remove('hide')
+        q('#carrinho-area').innerHTML = '' //zerando o que vai aparecer a cada vez que começa, pros itens anteriores nao serem repetidos
 
-// function updateCart() {
-//     if (cart.length > 0) {
-//         q('#carrinho-area').classList.remove('hide')
-//         q('#carrinho-area').innerHTML = ''
+        let subtotal = 0
+        let desconto = 0
+        let total = 0
 
-//         for (let i in cart) {
-//             //Encontrando no carrinho o produto pelo id
-//             let produtoItem = produtosCarrinho.find((item) => item.id == cart[i].id)
-//             let cartItem = q('#carrinho-style #produtos-carrinho-area').cloneNode(true)
+        for (let i in cart) {
+            //Encontrando no carrinho o produto pelo id
+            let produtoItem = produtosCarrinho.find((item) => item.id == cart[i].id)
 
-//             cartItem.querySelector('.img-produto-carrinho').src = produtoItem.img
-//             cartItem.querySelector('.nome-produto-carrinho').innerHTML = produtoItem.nome
-//             cartItem.querySelector('.preco-produto-carrinho').innerHTML = `R$ ${produtoItem.preço.toFixed(2)}`
-//             cartItem.querySelector('.quantidade').innerHTML = cart[i].qt
+            subtotal += produtoItem.preço * cart[i].qt
 
-//             console.log(cart[i].qt)
-//             document.querySelector('#carrinho-area').append(cartItem)
+            let cartItem = q('#carrinho-style #produtos-carrinho-area').cloneNode(true)
+            cartItem.querySelector('.img-produto-carrinho').src = produtoItem.img
+            cartItem.querySelector('.nome-produto-carrinho').innerHTML = produtoItem.nome
+            cartItem.querySelector('.preco-produto-carrinho').innerHTML = `R$ ${produtoItem.preço.toFixed(2)}`
+            cartItem.querySelector('.quantidade').innerHTML = cart[i].qt
 
+            cartItem.querySelector('#qt-menos').addEventListener('click', () => {
+                if (cart[i].qt > 1) {
+                    cart[i].qt--
+                } else {
+                    cart.splice(i, 1)
+                }
+                updateCart()
+            })
+            cartItem.querySelector('#qt-mais').addEventListener('click', () => {
+                cart[i].qt++
+                updateCart()
+            })
 
-//         }
-//     } else {
-//         q('#carrinho-area').classList.add('hide')
-//     }
-// }
+            document.querySelector('#carrinho-area').append(cartItem)
+        }
+
+        total = subtotal
+
+    } else {
+        q('#carrinho-area').classList.add('hide')
+    }
+}
 
 //Eventos de abrir e fechar o modal, assim como o de fechar o modal clicando no fade
 const fade = document.querySelector('#fade')

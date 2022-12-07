@@ -18,9 +18,8 @@
         <div id="container-carrinho">
             <div id="header-main">
                 <p>Nova Venda</p>
-                <a href="#"> <img id="icone-carrinho" onclick="abrirCarrinho()" class="hide"
-                        src="/assets/images/carrinho-de-compras.png" alt="Carrinho de Compras" title="Carrinho"></a>
-                        <div class="hide" id="quantidade-no-carrinho"></div>
+                
+                
             </div>
             <div id="fade" class="hide"></div>
 
@@ -67,18 +66,27 @@
                 </div>
             </div>
 
-            <div id="carrinho-area" class="hide">
+            <div id="estrutura-carrinho">
+                <img id="icone-carrinho" src="/assets/images/carrinho-de-compras.png" alt="Carrinho de Compras" title="Carrinho">
+                <p>ITENS NO CARRINHO</p>
             </div>
+            <div id="carrinho-area" class="hide"></div>
+            <div>
+                <p id="total-carrinho">Total:</p>
+            </div>
+            
 
             <div id="carrinho-style">
                 <div id="produtos-carrinho-area">
                     <img class="img-produto-carrinho" src="">
+                    <div id="preco-nome">
                     <p class="nome-produto-carrinho"></p>
                     <p class="preco-produto-carrinho"></p>
                     <div id="quantidade-carrinho">
-                        <button>-</button>
+                        <button id="qt-menos">-</button>
                         <p class="quantidade"></p>
-                        <button>+</bitton>
+                        <button id="qt-mais">+</button>
+                    </div>
                     </div>
                 </div>
             </div>
