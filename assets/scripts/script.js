@@ -174,6 +174,10 @@ function updateCart() {
 
         total = subtotal
 
+        q('#total-carrinho').innerHTML = `TOTAL: R$${total.toFixed(2)}`
+
+    
+
     } else {
         q('#carrinho-area').classList.add('hide')
     }
